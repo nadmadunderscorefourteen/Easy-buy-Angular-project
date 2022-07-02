@@ -1,0 +1,19 @@
+<section class="product-list">
+    <div class="product-list__card" *ngFor="let produto of produtos">
+        <!--Com o routerLink é criado uma rota, e ao clicar no produto é redirecionado conforme o id -->
+        <a routerLink="/produtos/{{ produto.id }}" class="product-list__link">
+            <!-- Property binding: [src] -->
+            <img [src]="produto.imagem" />
+            <h2 class="product-item__name">
+                {{ produto.descricao }}
+            </h2>
+            <p class="product-item__price">
+                {{ produto.preco | currency: "BRL" }}
+            </p>
+            <p class="product-item__price-description">
+               {{ produto.descricaoPreco }}
+            </p>
+            <button class="product-item__buy-button" type="button">Comprar</button>
+        </a>
+    </div>
+</section>
