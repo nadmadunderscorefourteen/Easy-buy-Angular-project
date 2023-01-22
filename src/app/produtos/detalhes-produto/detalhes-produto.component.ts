@@ -11,6 +11,7 @@ import { ProdutosService } from 'src/app/produtos.service';
   styleUrls: ['./detalhes-produto.component.css']
 })
 export class DetalhesProdutoComponent implements OnInit {
+  [x: string]: any;
   produto: IProduto | undefined;
   //mostra a quantidade de produtos no layout individual.
   quantidade = 1;
@@ -19,13 +20,13 @@ export class DetalhesProdutoComponent implements OnInit {
     private produtosService: ProdutosService,
     private route: ActivatedRoute,
     private notificacaoService: NotificacaoService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
   ) { }
 
   ngOnInit(): void {
-    //traz os parâmetros da rota
+
+    /*traz os parâmetros da rota; routeParams retorna um string, precisa converter em number para usar na linha do getOne. */
     const routeParams = this.route.snapshot.paramMap;
-    //routeParams retorna um string, precisa converter em number para usar na linha do getOne.
     const produtoId = Number(routeParams.get("id"));
     this.produto = this.produtosService.getOne(produtoId);
   }
@@ -33,11 +34,10 @@ export class DetalhesProdutoComponent implements OnInit {
   adicionarAoCarrinho() {
     this.notificacaoService.notificar("O produto foi adicionado ao carrinho");
     const produto: IProdutoCarrinho = {
-      //a reticencias significa tudo que tem no produto. A exclamação afirma que vai ter o produto quando o metodo for chamado.
       ...this.produto!,
-      quantidade: this.quantidade
+      quantidade: this.quantidade,
+    /* a reticencia se refere a todos os atributos do produto. A exclamação afirma que vai ter o produto quando o metodo for chamado.*/
     }
     this.carrinhoService.adicionarAoCarrinho(produto);
   }
-
 }

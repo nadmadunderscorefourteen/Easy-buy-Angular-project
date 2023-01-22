@@ -1,5 +1,5 @@
 .footer {
-    background-color: var(--yellow);  
+    background-color: lightgray;  
     color: var(--gray);
     font-size: 18px;
 }
@@ -14,7 +14,7 @@
 .footer__copyright {
     text-align: center;
     margin-top: 20px;
-    background-color: var(--soft-yellow);    
+    background-color: whitesmoke;    
     font-weight: bold;
     padding: 20px;
     color: var(--gray);

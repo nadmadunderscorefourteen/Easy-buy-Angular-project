@@ -1,4 +1,3 @@
-<div class="background">
 <h2 class="cart-title">Carrinho</h2>
 <div *ngIf="itensCarrinho.length > 0; else semProduto">
     <ul>
@@ -9,7 +8,7 @@
             <label>
                 Quantidade:
                 <input type="number" [(ngModel)]= "itemCarrinho.quantidade"
-                    (change)="calcularTotal()"
+                     (change)="calcularTotal()"
                 />
             </label>
             <button class="remove-button" (click)="removerProdutoCarrinho(itemCarrinho.id)"><i class="fa-solid fa-xmark"></i>
@@ -20,4 +19,3 @@
     <button class="buy-button" (click)="comprar()">Comprar</button>
 </div>
 <ng-template #semProduto>Ainda não há produtos no carrinho</ng-template>
-</div>

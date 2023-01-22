@@ -10,12 +10,12 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     ProdutosComponent,
-    DetalhesProdutoComponent
+    DetalhesProdutoComponent,
   ],
   imports: [
     CommonModule,
     ProdutosRoutingModule,
-    FormsModule //possibilita usar o recurso [(ngModel)]
+    FormsModule, //possibilita usar o recurso [(ngModel)]
   ]
 })
 export class ProdutosModule { }

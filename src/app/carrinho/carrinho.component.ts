@@ -14,7 +14,7 @@ export class CarrinhoComponent implements OnInit {
 
   constructor(
     public carrinhoService: CarrinhoService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -25,13 +25,14 @@ export class CarrinhoComponent implements OnInit {
   /* reduce percorre todos os elementos, trazendo o anterior e o atual. A chamada do método é pra reajustar o valor, em caso de adicao ou remocao de produtos. */
   calcularTotal() {
     this.total = this.itensCarrinho.reduce((prev, curr) => prev + (curr.preco * curr.quantidade), 0);
-    this.calcularTotal();
+    // essa parte da erro, excluir: this.calcularTotal();
   }
 
   //remove os produtos da interface
   removerProdutoCarrinho(produtoId: number){
     this.itensCarrinho = this.itensCarrinho.filter(item => item.id !== produtoId);
     this.carrinhoService.removerProdutoCarrinho(produtoId);
+    this.calcularTotal();
   }
 
   comprar() {

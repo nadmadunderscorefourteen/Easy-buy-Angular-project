@@ -1,6 +1,6 @@
 .product-list {
     padding: 40px 0;
-    width: fit-content;  
+    width: fit-content;
     display: flex;
     gap: 20px;
     flex-flow: row wrap;  
@@ -18,7 +18,7 @@
 }
 
 .product-list__card:hover {
-    transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.0);
     cursor: pointer;
 }
 
@@ -57,7 +57,7 @@
 .product-item__buy-button {
     background-color: var(--dark-wine);
     border: none;
-    border-radius: 3px;
+    border-radius: 4px;
     color: white;
     font-size: 20px;
     padding: 6px 12px;
